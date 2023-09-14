@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contador de Días, Horas y Segundos</title>
+</head>
+<body>
+    <h1>Contador de Días, Horas y Segundos</h1>
+    <p id="contador"></p>
+
+    <script>
+        // Fecha objetivo: 20 de diciembre de 2023
+        var fechaObjetivo = new Date("2023-12-20T00:00:00");
+
+        function actualizarContador() {
+            // Fecha actual
+            var fechaActual = new Date();
+
+            // Calcula la diferencia en milisegundos
+            var diferencia = fechaObjetivo - fechaActual;
+
+            // Calcula días, horas y segundos
+            var dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+            var horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+            var segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+            // Actualiza el elemento HTML con el contador
+            document.getElementById("contador").innerHTML = "Faltan " + dias + " días, " + horas + " horas, " + minutos + " minutos y " + segundos + " segundos para el 20 de diciembre de 2023.";
+        }
+
+        // Actualiza el contador cada segundo
+        setInterval(actualizarContador, 1000);
+
+        // Llama a la función para mostrar el contador inicialmente
+        actualizarContador();
+    </script>
+</body>
+</html>
+Este código HTML utiliza JavaScript para calcular la diferencia entre la fecha actual y el 20 de diciembre de 2023 y muestra el contador en la página web. El contador se actualiza cada segundo para mostrar la cuenta regresiva en tiempo real.
+
+
+
+
+User
+Le puedes poner diseño creativo rojo y blanco con movimiento
+ChatGPT
+Claro, puedes personalizar el diseño de tu contador con colores rojos y blancos y agregar un efecto de movimiento utilizando CSS y JavaScript. Aquí tienes una versión actualizada del código con un diseño más creativo:
+
+html
+Copy code
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contador de Días, Horas y Segundos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        h1 {
+            color: #FF0000; /* Rojo */
+        }
+
+        #contador {
+            font-size: 24px;
+            color: #FF0000; /* Rojo */
+            animation: pulse 1s infinite alternate; /* Efecto de pulso */
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Contador de Días, Horas y Segundos</h1>
+    <p id="contador"></p>
+
+    <script>
+        var fechaObjetivo = new Date("2023-12-20T00:00:00");
+
+        function actualizarContador() {
+            var fechaActual = new Date();
+            var diferencia = fechaObjetivo - fechaActual;
+            var dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+            var horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+            var segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+            document.getElementById("contador").innerHTML = "Faltan " + dias + " días, " + horas + " horas, " + minutos + " minutos y " + segundos + " segundos para el 20 de diciembre de 2023.";
+        }
+
+        setInterval(actualizarContador, 1000);
+        actualizarContador();
+    </script>
+</body>
+</html>
